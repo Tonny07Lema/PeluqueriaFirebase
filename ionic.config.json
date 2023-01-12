@@ -1,0 +1,7 @@
+{
+  "name": "CitasMedicas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
