@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+      <ion-item>
+        <ion-label >Correo</ion-label>
+        <ion-input [(ngModel)]="credenciales.correo" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label >Contraseña</ion-label>
+        <ion-input [(ngModel)]="credenciales.password" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" shape="full" expand="block" (click)="login()">Ingresar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" shape="full" expand="block" routerLink="/registrar">Registrar</ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-list>
+</ion-content>
