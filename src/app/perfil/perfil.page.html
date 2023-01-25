@@ -29,8 +29,21 @@
       <ion-icon (click)="presentAlert('telefono')" slot="end" name="create"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-icon slot="end" name="create" (click)="cargarImgen"></ion-icon>
+      <ion-label class="normal">
+        Foto:
+      </ion-label>
+      <ion-buttons>
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="images"> </ion-icon>
+          </label>
+          <!-- formControlName="foto" -->
+          <input name="foto" id="foto" required (change)="cargarImgen($event)" id="file-upload" style="display: none;"
+            type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
     </ion-item>
+    <img [src]="newImage">
   </ion-list>
   <ion-row>
     <ion-col>

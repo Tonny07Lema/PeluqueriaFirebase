@@ -12,16 +12,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'crear-cita',
-    loadChildren: () => import('./crear-cita/crear-cita.module').then( m => m.CrearCitaPageModule)
-  },
-  {
-    path: 'editar-cita/:id',
-    loadChildren: () => import('./editar-cita/editar-cita.module').then( m => m.EditarCitaPageModule)
+    path: 'registro-chat',
+    loadChildren: () => import('./registro-chat/registro-chat.module').then( m => m.RegistroChatPageModule)
   },
   {
     path: 'registrar',
     loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
+  },
+  {
+    path: 'login-chat',
+    loadChildren: () => import('./login-chat/login-chat.module').then( m => m.LoginChatPageModule)
   },
   {
     path: 'login',
@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
 ];
 

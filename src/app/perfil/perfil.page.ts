@@ -15,6 +15,9 @@ export class PerfilPage implements OnInit {
 
   uid : string =null; 
   info : Usuario=null;
+  newImage ='';
+  uploadedImage: File;
+  usuario :Usuario;
   SuscribeUserInfo: Subscription
   constructor(private usuarioSerivce : UsuarioService,
     private documento:DocumentService,
@@ -77,11 +80,33 @@ export class PerfilPage implements OnInit {
   }
   async cargarImgen(event:any){
     console.log('Entro')
+    const pathI = 'Cliente';
+    const id = this.uid;
+    this.SuscribeUserInfo= this.documento.getDocument<Usuario>(pathI,id).subscribe(res =>{
+      if(res){
+        this.info = res;
+      }
+      console.log(res);
+    })
     const path ='Perfil';
-    const name ='prueba';
-    const file = event.targer.files[0];
+    const name =this.info.nombre;
+    console.log(this.info.nombre)
+    const file = event.target.files[0];
     const res = await this.documento.cargarImagen(file,path,name);
     console.log('resibi el la primesa',res)
+    this.info.foto = res;
+  }
+  mostrarImagen(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (image) => {
+        this.newImage = image.target.result as string;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+  actualizarFoto(id: string, user: Usuario){
+    this.documento.updateFoto(id,user);
   }
   actualizar(name: string,input:any){
     const path = 'Cliente';

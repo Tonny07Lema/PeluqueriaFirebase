@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs';
+import { Usuario } from '../entidades/Cita';
 
 @Injectable({
   providedIn: 'root'
@@ -31,12 +33,26 @@ export class DocumentService {
   update(path:string, id:string, data:any){
     this.firestore.collection(path).doc(id).update(data);
   }
+  updateFoto(id: string, user: Usuario){
+    return this.firestore.doc(id).update(user);
+  }
+ 
 
-  cargarImagen(file:any ,path:string,nombre:string):Promise<string>{
+  cargarImagen(file: any, path: string, nombre: string): Promise<string>{
     return new Promise( resolve =>{
-      const files = path + "/" + nombre;
-      const ref = this.storage.ref(files);
-      resolve('este es el enlace');
+      const filePath = path + '/' + nombre;
+      const ref = this.storage.ref(filePath);
+      const task = ref.put(file);
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          ref.getDownloadURL().subscribe(res => {
+            const downloadURL = res;
+            resolve(downloadURL);
+            return;
+          })
+        })
+      )
+      .subscribe();
     });
   }
 }

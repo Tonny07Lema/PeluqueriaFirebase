@@ -7,9 +7,12 @@ export class Cita{
 export interface Usuario{
     correo: string;
     password : string;
-    nombre : string;
+    nombre : string; 
     cedula : string;
     telefono:string;
     uid:string;
+    foto: string;
     perfil:'estilista'|'cliente';
 }
+
+

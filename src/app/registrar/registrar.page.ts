@@ -19,6 +19,7 @@ export class RegistrarPage implements OnInit {
     cedula : "",
     telefono:"",
     uid : "",
+    foto : "",
     perfil:'cliente'
   }
   

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>REGISTRO</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login-chat"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label >Correo</ion-label>
+      <ion-input [(ngModel)]="datos.correo" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Contraseña</ion-label>
+      <ion-input [(ngModel)]="datos.password" type="text" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Nombre</ion-label>
+      <ion-input [(ngModel)]="datos.nombre" type="text" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Usuario</ion-label>
+      <ion-input [(ngModel)]="datos.usuario" type="text" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Texto</ion-label>
+      <ion-input [(ngModel)]="datos.texto" type="text" required>
+      </ion-input>
+    </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block" (click)="registrar()">Guardar</ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-list>
+</ion-content>

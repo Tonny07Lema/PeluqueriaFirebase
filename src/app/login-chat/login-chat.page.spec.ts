@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { EditarCitaPage } from './editar-cita.page';
+import { LoginChatPage } from './login-chat.page';
 
-describe('EditarCitaPage', () => {
-  let component: EditarCitaPage;
-  let fixture: ComponentFixture<EditarCitaPage>;
+describe('LoginChatPage', () => {
+  let component: LoginChatPage;
+  let fixture: ComponentFixture<LoginChatPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditarCitaPage ],
+      declarations: [ LoginChatPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EditarCitaPage);
+    fixture = TestBed.createComponent(LoginChatPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
