@@ -43,7 +43,12 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
-    <img [src]="newImage">
+    <ion-item>
+      <ion-label>
+        {{info.foto}}
+      </ion-label>
+    </ion-item>
+    <ion-img [src]="newImage"></ion-img>
   </ion-list>
   <ion-row>
     <ion-col>

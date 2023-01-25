@@ -80,6 +80,13 @@ export class PerfilPage implements OnInit {
   }
   async cargarImgen(event:any){
     console.log('Entro')
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (image) => {
+        this.newImage = image.target.result as string;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
     const pathI = 'Cliente';
     const id = this.uid;
     this.SuscribeUserInfo= this.documento.getDocument<Usuario>(pathI,id).subscribe(res =>{
@@ -95,15 +102,6 @@ export class PerfilPage implements OnInit {
     const res = await this.documento.cargarImagen(file,path,name);
     console.log('resibi el la primesa',res)
     this.info.foto = res;
-  }
-  mostrarImagen(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (image) => {
-        this.newImage = image.target.result as string;
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    }
   }
   actualizarFoto(id: string, user: Usuario){
     this.documento.updateFoto(id,user);
