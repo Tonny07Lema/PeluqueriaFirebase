@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-title>Perfiles</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -43,12 +43,7 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
-    <ion-item>
-      <ion-label>
-        {{info.foto}}
-      </ion-label>
-    </ion-item>
-    <ion-img [src]="newImage"></ion-img>
+    <img [src]="info.foto">
   </ion-list>
   <ion-row>
     <ion-col>
